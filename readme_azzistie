@@ -1,0 +1,11 @@
+该目录除./Pkcs7Sign外，为linux-5.4-rc1的所有文件。
+./Pkcs7Sign用于对文件签名和验证
+被修改的文件有：
+1）./arch/x86/boot/compressed/eboot.c
+该文件中包含了linux源码C语言的总入口efi_main，主要工作的代码工作在efi_main函数中
+2）./arch/x86/boot/compressed/efi_thunk_64.S
+在该文件末尾用汇编声明了公钥文件（公钥变量），以使在eboot.c中能够被引用
+3）./include/linux/efi.h
+#700声明了标准pkcs7结构体、guid
+4）./arch/x86/platform/efi/efi_stub_64.S
+对efi_call函数作了修改，使得能在调用时够传更多的参数
