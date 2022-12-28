@@ -1,0 +1,14 @@
+CryptPkcs7VerifyCommon.c 为编译所需文件（猜测）
+
+main.cpp为验签文件，编译后需要指明将要被验签的文件，公钥在代码中默认指定
+sign-file.c为签名文件，编译后需要指明公私要、将被签文件
+signing_key.pem和signing_key.x509分别为公私钥
+
+命令：
+	验签：
+	./a.out initrd_signed.img
+	签名：
+	./a.out sha256 signing_key.pem signing_key.x509 initrd.img initrd_signed.img
+
+编译：
+编译时需加上 -lssl -lcrypto
